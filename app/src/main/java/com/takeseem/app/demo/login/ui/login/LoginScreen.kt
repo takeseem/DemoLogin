@@ -1,6 +1,9 @@
 package com.takeseem.app.demo.login.ui.login
 
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -9,6 +12,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material3.Checkbox
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -33,11 +39,14 @@ fun LoginScreen() {
 			.padding(defaultPadding),
 		horizontalAlignment = Alignment.CenterHorizontally
 	) {
-		val (userName, setUsername) = rememberSaveable{
+		val (userName, setUsername) = rememberSaveable {
 			mutableStateOf("")
 		}
-		val (password, setPassword) = rememberSaveable{
+		val (password, setPassword) = rememberSaveable {
 			mutableStateOf("")
+		}
+		val (checked, onCheckedChange) = rememberSaveable {
+			mutableStateOf(true)
 		}
 		
 		HeaderText(text = "Login", modifier = Modifier
@@ -61,9 +70,26 @@ fun LoginScreen() {
 			keyboardType = KeyboardType.Password,
 			visualTransformation = PasswordVisualTransformation(),
 		)
+		Spacer(Modifier.height(itemSpacing))
+		
+		Row(
+			modifier = Modifier.fillMaxWidth(),
+			verticalAlignment = Alignment.CenterVertically,
+			horizontalArrangement = Arrangement.SpaceBetween,
+		) {
+			Row(
+				verticalAlignment = Alignment.CenterVertically,
+				modifier = Modifier.clickable { onCheckedChange(!checked) },
+			) {
+				Checkbox(checked = checked, onCheckedChange = onCheckedChange)
+				Text(text = "Remember me")
+			}
+			TextButton(onClick = {}) {
+				Text("Forgot password?")
+			}
+		}
 	}
 }
-
 
 @Preview
 @Composable
