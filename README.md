@@ -1,1 +1,2 @@
 - 创建工程，Android Studio 版本：Jellyfish | 2023.3.1 Patch 1
+- 依赖升级到最新版本 (截止：2024-06-01)
