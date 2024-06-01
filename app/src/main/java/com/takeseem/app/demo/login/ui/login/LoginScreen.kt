@@ -38,9 +38,8 @@ import com.takeseem.app.demo.login.R
 import com.takeseem.app.demo.login.ui.components.HeaderText
 import com.takeseem.app.demo.login.ui.components.LoginTextField
 import com.takeseem.app.demo.login.ui.theme.DemoLoginTheme
-
-val defaultPadding = 16.dp
-val itemSpacing = 8.dp
+import com.takeseem.app.demo.login.ui.theme.defaultPadding
+import com.takeseem.app.demo.login.ui.theme.itemSpacing
 
 @Composable
 fun LoginScreen(

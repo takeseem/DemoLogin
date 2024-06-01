@@ -1,6 +1,5 @@
 package com.takeseem.app.demo.login.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -10,6 +9,10 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.dp
+
+val defaultPadding = 16.dp
+val itemSpacing = 8.dp
 
 private val DarkColorScheme = darkColorScheme(
 	primary = Purple80,

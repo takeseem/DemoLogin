@@ -3,3 +3,4 @@
 - 参考视频：https://www.youtube.com/watch?v=OlO58LDfN14&t=1928s
 - 参考项目：https://github.com/Hoodlab/jet-login/tree/final
 - 开发 LoginScreen ![login.png](app/src/main/java/com/takeseem/app/demo/login/ui/login/login.png)
+- 开发 SignupScreen ![signup.png](app/src/main/java/com/takeseem/app/demo/login/ui/signup/signup.png)
