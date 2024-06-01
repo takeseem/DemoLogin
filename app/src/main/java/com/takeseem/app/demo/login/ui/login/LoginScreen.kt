@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material3.Button
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -87,6 +88,14 @@ fun LoginScreen() {
 			TextButton(onClick = {}) {
 				Text("Forgot password?")
 			}
+		}
+		
+		Spacer(Modifier.height(itemSpacing))
+		Button(
+			onClick = {},
+			modifier = Modifier.fillMaxWidth()
+		) {
+			Text("Login")
 		}
 	}
 }
