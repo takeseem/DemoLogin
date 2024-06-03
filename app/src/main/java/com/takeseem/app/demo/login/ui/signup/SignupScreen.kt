@@ -34,7 +34,9 @@ import com.takeseem.app.demo.login.ui.theme.defaultPadding
 import com.takeseem.app.demo.login.ui.theme.itemSpacing
 
 @Composable
-fun SignupScreen() {
+fun SignupScreen(
+	onSignInClick: () -> Unit = {}
+) {
 	Column(
 		modifier = Modifier
 			.fillMaxSize()
@@ -133,7 +135,7 @@ fun SignupScreen() {
 		ClickableText(signInAnnotation) { offset ->
 			signInAnnotation.getStringAnnotations(offset, offset).forEach {
 				if (it.tag == "Sign In") {
-					Toast.makeText(context, "Sign In Clicked", Toast.LENGTH_SHORT).show()
+					onSignInClick()
 				}
 			}
 		}

@@ -31,7 +31,11 @@ fun AppNavigation(
 				)
 			}
 			composable(route = Route.SignupScreen.dest) {
-				SignupScreen()
+				SignupScreen(
+					onSignInClick = {
+						navController.navigateToSingleTop(Route.LoginScreen.dest)
+					}
+				)
 			}
 		}
 	}
