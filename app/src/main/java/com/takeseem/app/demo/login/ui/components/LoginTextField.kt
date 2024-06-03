@@ -1,5 +1,6 @@
 package com.takeseem.app.demo.login.ui.components
 
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Icon
@@ -23,7 +24,7 @@ fun LoginTextField(
 	visualTransformation: VisualTransformation = VisualTransformation.None,
 ) {
 	OutlinedTextField(
-		modifier = modifier,
+		modifier = modifier.fillMaxWidth(),
 		value = value,
 		onValueChange = onValueChange,
 		label = { Text(labelText) },
