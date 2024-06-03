@@ -7,11 +7,15 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import com.takeseem.app.demo.login.ui.login.LoginScreen
+import com.takeseem.app.demo.login.ui.signup.PolicyScreen
+import com.takeseem.app.demo.login.ui.signup.PrivacyScreen
 import com.takeseem.app.demo.login.ui.signup.SignupScreen
 
 sealed class Route(val dest: String) {
 	data object LoginScreen: Route("screen.login")
 	data object SignupScreen: Route("screen.signup")
+	data object PolicyScreen: Route("screen.policy")
+	data object PrivacyScreen: Route("screen.privacy")
 }
 
 @Composable
@@ -34,8 +38,28 @@ fun AppNavigation(
 				SignupScreen(
 					onSignInClick = {
 						navController.navigateToSingleTop(Route.LoginScreen.dest)
+					},
+					onPolicyClick = {
+						navController.navigate(Route.PolicyScreen.dest) {
+							launchSingleTop = true
+						}
+					},
+					onPrivacyClick = {
+						navController.navigate(Route.PrivacyScreen.dest) {
+							launchSingleTop = true
+						}
 					}
 				)
+			}
+			composable(route = Route.PolicyScreen.dest) {
+				PolicyScreen() {
+					navController.navigateUp()
+				}
+			}
+			composable(route = Route.PrivacyScreen.dest) {
+				PrivacyScreen() {
+					navController.navigateUp()
+				}
 			}
 		}
 	}

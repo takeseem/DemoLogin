@@ -8,7 +8,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.ClickableText
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
@@ -35,11 +37,14 @@ import com.takeseem.app.demo.login.ui.theme.itemSpacing
 
 @Composable
 fun SignupScreen(
-	onSignInClick: () -> Unit = {}
+	onSignInClick: () -> Unit = {},
+	onPrivacyClick: () -> Unit = {},
+	onPolicyClick: () -> Unit = {},
 ) {
 	Column(
 		modifier = Modifier
 			.fillMaxSize()
+			.verticalScroll(rememberScrollState())
 			.padding(defaultPadding),
 		horizontalAlignment = Alignment.CenterHorizontally,
 	) {
@@ -102,12 +107,8 @@ fun SignupScreen(
 			ClickableText(annotatedString) { offset ->
 				annotatedString.getStringAnnotations(offset, offset).forEach {
 					when (it.tag) {
-						"Privacy" -> {
-							Toast.makeText(context, "Privacy Clicked", Toast.LENGTH_SHORT).show()
-						}
-						"Policy" -> {
-							Toast.makeText(context, "Policy Clicked", Toast.LENGTH_SHORT).show()
-						}
+						"Privacy" -> onPrivacyClick()
+						"Policy" -> onPolicyClick()
 					}
 				}
 			}
